@@ -5,6 +5,11 @@ The trained model is a **RandomForestRegressor** wrapped inside a **scikit-learn
 
 ---
 
+## 🌐 Live Demo
+👉 https://car-price-predictionupdated-zbq9qxda5rkabnlhrnfwf8.streamlit.app/
+
+---
+
 ## 1. Project Overview
 
 This repository contains:
