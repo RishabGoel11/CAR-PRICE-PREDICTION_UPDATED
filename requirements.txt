@@ -6,3 +6,4 @@ seaborn
 streamlit
 scikit-learn
 xgboost
+gdown

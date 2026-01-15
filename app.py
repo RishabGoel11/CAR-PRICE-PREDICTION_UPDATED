@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
+import gdown
+
 
 # ---------------------------------
 # Page Configuration
@@ -14,10 +17,18 @@ st.set_page_config(
 # ---------------------------------
 # Load Model
 # ---------------------------------
+MODEL_PATH = "model/car_price_pipeline.pkl"
+MODEL_URL = "https://drive.google.com/uc?id=1F30fGWIeg0rvYaMesGIXLFT50Pi-0iG0"
 @st.cache_resource
 def load_model():
-    with open("model/car_price_pipeline.pkl", "rb") as file:
-        return pickle.load(file)
+    if not os.path.exists("model"):
+        os.makedirs("model")
+
+    if not os.path.exists(MODEL_PATH):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+    with open(MODEL_PATH, "rb") as f:
+        return pickle.load(f)
 
 model = load_model()
 
